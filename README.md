@@ -2,9 +2,9 @@ API testing
 =================
 
 
-An app testing a simple API implementation with NodeJs, Express and MongoDb, with a React frontend.
+API implementation with NodeJs, Express and MongoDb, deployed to Heroku.
 
-URL: https://rainbow-dancing-keyboard.glitch.me/api
+URL: https://agile-hamlet-32644.herokuapp.com/api
 
 Endpoints:
 
