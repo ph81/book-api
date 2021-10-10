@@ -2,7 +2,7 @@ API testing
 =================
 
 
-API implementation with NodeJs, Express and MongoDb, deployed to Heroku.npm 
+API implementation with NodeJs, Express and MongoDb, deployed to Heroku.
 
 URL: https://agile-hamlet-32644.herokuapp.com/api
 
