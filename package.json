@@ -1,6 +1,5 @@
 {
   "name": "api-users",
-  "version": "1.0",
   "description": "A simple api built with Node and Express.",
   "main": "server.js",
   "scripts": {
@@ -16,5 +15,8 @@
   "devDependencies": {
     "eslint": "^8.0.0",
     "nodemon": "^2.0.13"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
