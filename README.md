@@ -4,7 +4,7 @@ API testing
 
 API implementation with NodeJs, Express and MongoDb, deployed to Vercel.
 
-URL: https://agile-hamlet-32644.herokuapp.com/api
+URL: tbc
 
 Endpoints:
 
