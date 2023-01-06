@@ -4,7 +4,7 @@ API testing
 
 API implementation with NodeJs, Express and MongoDb, deployed to Vercel.
 
-URL: tbc
+URL: https://node-api-users.vercel.app/api
 
 Endpoints:
 
