@@ -1,5 +1,5 @@
 {
-  "name": "api-users",
+  "name": "api-books",
   "description": "A simple api built with Node and Express.",
   "main": "server.js",
   "scripts": {
