@@ -60,7 +60,7 @@ exports.update = function (req, res) {
 exports.delete = function (req, res) {
   Book.deleteOne(
     {
-      _id: req.params.book_id,
+      id: req.params.book_id,
     },
     function (err, note) {
       if (err) res.send(err);
