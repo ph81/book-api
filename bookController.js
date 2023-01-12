@@ -38,7 +38,7 @@ exports.view = function (req, res) {
 
 // Handle update note info
 exports.update = function (req, res) {
-  Book.findById(req.params.book_id, function (err, book) {
+  Book.findById(req.params.id, function (err, book) {
     if (err) res.send(err);
 
     book.title = req.body.title ? req.body.title : book.title;
