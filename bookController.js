@@ -32,7 +32,7 @@ exports.new = function (req, res) {
 
 // Handle view book info
 exports.view = function (req, res) {
-  Book.findById( req.params.id, function (err, book) {
+  Book.findById(toObjId(req.params.id), function (err, book) {
     if (err) res.send(err);
     res.json({
       message: "book details loading..",
