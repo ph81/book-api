@@ -11,14 +11,14 @@ exports.index = function (req, res) {
 // Create book
 exports.new = function (req, res) {
   let book = new Book();
-
+  book.id = req.body.id ? req.body.id : book.id;
   book.title = req.body.title ? req.body.title : book.title;
   book.author = req.body.author ? req.body.author : book.author;
 
   //saving book and checking for errors
   book.save(function (err) {
     res.json({
-      message: "New note created!",
+      message: "New book created!",
       status: "ok",
       data: book,
     });
