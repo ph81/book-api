@@ -18,7 +18,7 @@ router.route("/books")
   .post(bookController.new);
 
 router
-  .route("/books/:book_id")
+  .route("/books/:id")
   .get(bookController.view)
   .patch(bookController.update)
   .put(bookController.update)
