@@ -30,7 +30,7 @@ exports.new = function (req, res) {
 exports.view = async function (req, res) {
  try {
         //const bookId = mongoose.Types.ObjectId(req.params.id);
-        const data = await Book.findOne(req.params.id);
+        const data = Book.findOne(req.params.id);
         res.json(data)
     }
     catch (error) {
