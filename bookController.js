@@ -42,7 +42,6 @@ exports.view = async function (req, res) {
 exports.update = function (req, res) {
   Book.findById(req.params.id, function (err, book) {
     if (err) res.send(err);
-    book.bookId = req.body.id ? req.body.id : book.id;
     book.title = req.body.title ? req.body.title : book.title;
     book.author = req.body.author ? req.body.author : book.author;
 
