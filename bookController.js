@@ -26,14 +26,17 @@ exports.new = function (req, res) {
 };
 
 // Handle view book info
-exports.view = function (req, res) {
-  Book.findById(req.params.id, function (err, book) {
-    if (err) res.send(err);
-    res.json({
-      message: "book details loading..",
-      data: book,
-    });
-  });
+exports.view = function async (req, res) {
+ try {
+        const data = await Book.findById(req.params.id);
+        res.json({
+		    message: "book details loading..",
+		    data: book,
+		    })
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
 };
 
 // Handle update note info
