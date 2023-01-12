@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 // Import Book Model
 const Book = require("./bookModel");
 
@@ -11,7 +12,7 @@ exports.index = function (req, res) {
 // Create book
 exports.new = function (req, res) {
   let book = new Book();
-  book.id = req.body.id ? req.body.id : book.id;
+  book.bookId = req.body.id ? req.body.id : book.id;
   book.title = req.body.title ? req.body.title : book.title;
   book.author = req.body.author ? req.body.author : book.author;
 
@@ -26,13 +27,11 @@ exports.new = function (req, res) {
 };
 
 // Handle view book info
-exports.view = function async (req, res) {
+exports.view = async function (req, res) {
  try {
-        const data = await Book.findById(req.params.id);
-        res.json({
-		    message: "book details loading..",
-		    data: book,
-		    })
+        //const bookId = mongoose.Types.ObjectId(req.params.id);
+        const data = await Book.findOne(req.params.id);
+        res.json(data)
     }
     catch (error) {
         res.status(500).json({ message: error.message })
@@ -43,9 +42,9 @@ exports.view = function async (req, res) {
 exports.update = function (req, res) {
   Book.findById(req.params.id, function (err, book) {
     if (err) res.send(err);
-
+    book.bookId = req.body.id ? req.body.id : book.id;
     book.title = req.body.title ? req.body.title : book.title;
-  book.author = req.body.author ? req.body.author : book.author;
+    book.author = req.body.author ? req.body.author : book.author;
 
     // save the note and check for errors
     book.save(function (err) {
@@ -65,7 +64,7 @@ exports.delete = function (req, res) {
     {
       id: req.params.id,
     },
-    function (err, note) {
+    function (err, book) {
       if (err) res.send(err);
 
       res.json({
