@@ -27,7 +27,7 @@ exports.new = function (req, res) {
 
 // Handle view book info
 exports.view = function (req, res) {
-  Book.findById(req.params.book_id, function (err, book) {
+  Book.findById(req.params.id, function (err, book) {
     if (err) res.send(err);
     res.json({
       message: "book details loading..",
@@ -60,7 +60,7 @@ exports.update = function (req, res) {
 exports.delete = function (req, res) {
   Book.deleteOne(
     {
-      id: req.params.book_id,
+      id: req.params.id,
     },
     function (err, note) {
       if (err) res.send(err);
