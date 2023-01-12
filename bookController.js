@@ -40,19 +40,21 @@ exports.view = async function (req, res) {
 
 // Handle update note info
 exports.update = function (req, res) {
-   try {
-        const id = req.params.id;
-        const book = req.body;
-        const result = await Book.findByIdAndUpdate(id, book)
-        res.json({
+  Book.findById(req.params.id, function (err, book) {
+    if (err) res.send(err);
+    book.title = req.body.title ? req.body.title : book.title;
+    book.author = req.body.author ? req.body.author : book.author;
+
+    // save the note and check for errors
+    book.save(function (err) {
+      if (err) res.json(err);
+      res.json({
         message: "book Info updated",
         status: "ok",
         data: book,
       });
-    }
-    catch (error) {
-        res.status(500).json({ message: error.message })
-    }
+    });
+  });
 };
 
 // Handle delete user
