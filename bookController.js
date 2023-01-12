@@ -1,11 +1,6 @@
 // Import Book Model
 const Book = require("./bookModel");
 
-//convert
-const toObjId = (id) => {
-  return Types.ObjectId(id);
-};
-
 //Handling index actions
 exports.index = function (req, res) {
   Book.find()
@@ -32,7 +27,7 @@ exports.new = function (req, res) {
 
 // Handle view book info
 exports.view = function (req, res) {
-  Book.findById(toObjId(req.params.id), function (err, book) {
+  Book.findById(req.params.id, function (err, book) {
     if (err) res.send(err);
     res.json({
       message: "book details loading..",
@@ -43,7 +38,7 @@ exports.view = function (req, res) {
 
 // Handle update note info
 exports.update = function (req, res) {
-  Book.findById(toObjId(req.params.id), function (err, book) {
+  Book.findById(req.params.id, function (err, book) {
     if (err) res.send(err);
 
     book.title = req.body.title ? req.body.title : book.title;
