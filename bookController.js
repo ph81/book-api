@@ -38,21 +38,23 @@ exports.view = async function (req, res) {
 
 // Handle update note info
 exports.update = function (req, res) {
-  Book.findByIdAndUpdate(req.params.id, {
-    book: req.body,
-  })
-    .then((data) => {
-      if (!data) {
-        return res.status(404).send({
-          message: "book not found with id " + req.params.id,
+    Book.findById(req.params.bookId, function (err, book) {
+        if (err)
+            res.send(err);
+        book.title = req.body.title ? req.body.title : book.title;
+        book.author = req.body.author ? req.body.author : book.author;
+ 
+
+        // save the user and check for errors
+        book.save(function (err) {
+            if (err)
+                res.json(err);
+            res.json({
+                message: 'book updated',
+                status: "ok",
+                data: book
+            });
         });
-      }
-      res.send(data);
-    })
-    .catch((err) => {
-      return res.status(500).send({
-        message: "Error updating message with id " + req.params.id,
-      });
     });
 };
 
