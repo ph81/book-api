@@ -11,7 +11,7 @@ exports.index = function (req, res) {
 // Create book
 exports.new = function (req, res) {
   let book = new Book();
-  book.bookId = req.body.id ? req.body.id : book.id;
+  book.bookId = req.body.bookId ? req.body.bookId : book.bookId;
   book.title = req.body.title ? req.body.title : book.title;
   book.author = req.body.author ? req.body.author : book.author;
 
@@ -62,7 +62,7 @@ exports.update = function (req, res) {
 exports.delete = function (req, res) {
   Book.deleteOne(
     {
-      id: req.params.id,
+      bookId: req.params.bookId,
     },
     function (err, book) {
       if (err) res.send(err);
