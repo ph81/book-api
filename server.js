@@ -2,20 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors');
 require('dotenv').config();
 const dbUrl = process.env.MONGO_URI;
 // Initialize the app
 const app = express();
-
-//enables cors
-app.use(cors({
-  'allowedHeaders': ['sessionId', 'Content-Type'],
-  'exposedHeaders': ['sessionId'],
-  'origin': '*',
-  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  'preflightContinue': false
-}));
 
 // Import routes
 let apiRoutes = require("./api-routes")
