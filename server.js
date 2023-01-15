@@ -11,6 +11,15 @@ const dbUrl = process.env.MONGO_URI;
 // Initialize the app
 let app = express();
 
+//enables cors
+app.use(cors({
+  'allowedHeaders': ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'],
+  'exposedHeaders': ['sessionId'],
+  'origin': ['http://localhost:5173/', 'https://books-rtoolkit.vercel.app/'],
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}));
+
 // Import routes
 let apiRoutes = require("./api-routes");
 
@@ -22,14 +31,6 @@ app.use(
 );
 app.use(bodyParser.json());
 
-//enables cors
-app.use(cors({
-  'allowedHeaders': ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'],
-  'exposedHeaders': ['sessionId'],
-  'origin': ['http://localhost:5173/', 'https://books-rtoolkit.vercel.app/'],
-  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  'preflightContinue': false
-}));
 
 // Connect to database
 // Connect to Mongoose and set connection variable
