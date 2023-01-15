@@ -29,7 +29,7 @@ exports.new = function (req, res) {
 exports.view = async function (req, res) {
   try {
     //const bookId = mongoose.Types.ObjectId(req.params.id);
-    const data = await Book.findOne(req.params.bookId);
+    const data = await Book.findOne({bookId: req.params.bookId});
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
