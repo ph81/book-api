@@ -12,15 +12,13 @@ const dbUrl = process.env.MONGO_URI;
 let app = express();
 
 //enables cors
-app.use(
-  cors({
-    allowedHeaders: ["authorization", "Content-Type", "Access-Control-Allow-Origin"], 
-    exposedHeaders: ["authorization"],
-    origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false
-  });
-);
+app.use(cors({
+  'allowedHeaders': ['sessionId', 'Content-Type'],
+  'exposedHeaders': ['sessionId'],
+  'origin': '*',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}));
 
 // Import routes
 let apiRoutes = require("./api-routes");
