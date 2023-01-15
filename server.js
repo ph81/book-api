@@ -5,19 +5,20 @@ let bodyParser = require("body-parser");
 // Import Mongoose
 let mongoose = require("mongoose");
 const dotenv = require("dotenv");
-//let cors = require("cors");
+let cors = require("cors");
 require("dotenv").config();
 const dbUrl = process.env.MONGO_URI;
 // Initialize the app
 let app = express();
 
 //enables cors
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, PATCH, DELETE");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.use(cors({
+  'allowedHeaders': ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
+  'exposedHeaders': ['sessionId'],
+  'origin': '*',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}));
 
 // Import routes
 let apiRoutes = require("./api-routes");
