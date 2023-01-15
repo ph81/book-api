@@ -14,7 +14,7 @@ let app = express();
 //enables cors
 app.use(
   cors({
-    allowedHeaders: ["authorization", "Content-Type"], 
+    allowedHeaders: ["authorization", "Content-Type", "Access-Control-Allow-Origin"], 
     exposedHeaders: ["authorization"],
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
