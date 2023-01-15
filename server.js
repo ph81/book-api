@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 //enables cors
 app.use(cors({
-  'allowedHeaders': ['Content-Type', 'Authorization'],
+  'allowedHeaders': ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin'],
   'exposedHeaders': ['sessionId'],
   'origin': ['http://localhost:5173/', 'https://books-rtoolkit.vercel.app/'],
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
