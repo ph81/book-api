@@ -28,7 +28,7 @@ app.use(cors({
   'exposedHeaders': ['sessionId'],
   'origin': ['http://localhost:5173/', 'https://books-rtoolkit.vercel.app/'],
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  'preflightContinue': true
+  'preflightContinue': false
 }));
 
 // Connect to database
