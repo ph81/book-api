@@ -13,7 +13,7 @@ let app = express();
 
 //enables cors
 app.use(cors({
-  'allowedHeaders': ['sessionId', 'Content-Type'],
+  'allowedHeaders': ['sessionId', 'Content-Type', 'Access-Control-Allow-Origin'],
   'exposedHeaders': ['sessionId'],
   'origin': '*',
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
