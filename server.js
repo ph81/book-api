@@ -13,9 +13,9 @@ let app = express();
 
 //enables cors
 app.use(cors({
-  'allowedHeaders': ['sessionId', 'Content-Type', 'Access-Control-Allow-Origin'],
+  'allowedHeaders': ['Content-Type', 'Authorization'],
   'exposedHeaders': ['sessionId'],
-  'origin': '*',
+  'origin': ['http://localhost:5173/', 'https://books-rtoolkit.vercel.app/'],
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': true
 }));
